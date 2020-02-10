@@ -25,5 +25,5 @@ files.each_with_index do |file, index|
   logger.info("Transcoding of #{wav_filename} to #{output_file} succeeded\n")
 
   logger.info("Deleting intermediate output #{wav_filename}...\n")
-  system("rm #{wav_filename}")
+  system("rm \"#{wav_filename}\"")
 end
