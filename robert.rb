@@ -20,9 +20,9 @@ files.each_with_index do |file, index|
   #puts "Converting #{filename} to wav"
   command = "sox --buffer 131072 --multi-threaded --no-glob \"#{wav_filename}\" --clobber -r 32000 -b 16 -e signed-integer --no-glob #{output_file} remix - gain -n -1.5 bass +1 loudness -1 pad 00"
 
-  logger.info("Running WAV processing...\n#{command.split(' ')}\n")
+  logger.info("Running audio processing...\n#{command.split(' ')}\n")
   system(command)
-  logger.info("Transcoding of #{wav_filename} to #{output_file} succeeded\n")
+  logger.info("Audio processing of #{wav_filename} to #{output_file} succeeded\n")
 
   logger.info("Deleting intermediate output #{wav_filename}...\n")
   system("rm \"#{wav_filename}\"")
