@@ -17,7 +17,6 @@ files.each_with_index do |file, index|
   audio = FFMPEG::Movie.new(file)
   audio.transcode(wav_filename, %w(-acodec pcm_u8 -ar 22050))
 
-  #puts "Converting #{filename} to wav"
   command = "sox --buffer 131072 --multi-threaded --no-glob \"#{wav_filename}\" --clobber -r 32000 -b 16 -e signed-integer --no-glob #{output_file} remix - gain -n -1.5 bass +1 loudness -1 pad 00"
 
   logger.info("Running audio processing...\n#{command.split(' ')}\n")
